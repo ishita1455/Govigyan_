@@ -1,0 +1,43 @@
+/* Payment Page Styles */
+.payment-page {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .payment-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+  }
+  
+  .payment-button:hover {
+    background-color: #45a049;
+  }
+  
+  .home-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+  }
+  
+  .home-btn:hover {
+    background-color: #0056b3;
+  }
+  

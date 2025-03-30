@@ -1,0 +1,57 @@
+/* Bills Page Styles */
+.bills-page {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  .bill-list {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+  
+  .bill-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .bill-item:last-child {
+    border-bottom: none;
+  }
+  
+  .download-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .download-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .home-btn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .home-btn:hover {
+    background-color: #0056b3;
+  }
+  

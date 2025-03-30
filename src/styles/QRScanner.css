@@ -1,0 +1,125 @@
+/* Scanner Page Container */
+.scanner-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f0f0, #d4e6f1);
+    color: #333;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Heading Styling */
+.scanner-page h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px #aaa;
+}
+
+/* QR Scanner Box */
+#reader {
+    width: 320px;
+    height: 320px;
+    border: 8px solid #27ae60;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#reader:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation for Scanning */
+#reader::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: #27ae60;
+    animation: scan-line 2s infinite;
+}
+
+/* Scanning Effect Animation */
+@keyframes scan-line {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .scanner-page h1 {
+        font-size: 2rem;
+    }
+
+    #reader {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scanner-page h1 {
+        font-size: 1.8rem;
+    }
+
+    #reader {
+        width: 240px;
+        height: 240px;
+    }
+}
+
+
+
+/* QRScanner.css */
+.scanner-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #reader {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+
+  .home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+  
+  .home-btn:hover {
+    background-color: #45a049;
+  }
+  
