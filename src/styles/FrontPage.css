@@ -97,3 +97,25 @@ footer {
         padding: 10px 18px;
     }
 }
+
+.buttons button {
+    background: #ff6600 !important;  /* 🔥 Bright Orange */
+    color: #ffffff !important;       /* ✅ White Text for Contrast */
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 14px 28px;
+    border: 2px solid #cc5500;       /* 🟠 Slightly Darker Border */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons button:hover {
+    background: #e65c00;  /* 🎨 Darker Orange on Hover */
+    transform: translateY(-2px);
+}
+
+.buttons button:active {
+    transform: translateY(1px);
+}

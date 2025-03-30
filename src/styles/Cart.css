@@ -73,7 +73,7 @@
   button {
     padding: 12px 20px;
     font-size: 16px;
-    color: white;
+    color: #175df4;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -97,11 +97,12 @@
   }
   
   .remove-btn {
-    background: #e74c3c;
+    background: #7aabe7;
   }
   
   .remove-btn:hover {
-    background: #c0392b;
+    background: #7aabe7;
+    ;
   }
   
   @media (max-width: 768px) {
