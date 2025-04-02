@@ -82,4 +82,24 @@
   .home-btn:hover {
     background-color: #45a049;
   }
-  
+  table {
+    width: 80%; /* Adjust width as needed */
+    margin: 20px auto; /* Centers the table horizontally */
+    border-collapse: collapse;
+    background: #fff;
+    text-align: center;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #4CAF50;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}

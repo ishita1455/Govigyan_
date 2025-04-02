@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import '../styles/QRScanner.css';
 
 const QRScanner = () => {
-    const [products, setProducts] = useState([]);
+    const location = useLocation();
+    const [products, setProducts] = useState(location.state?.products || []);
     const scannerRef = useRef(null);
     const navigate = useNavigate();
     const isScannerRunning = useRef(false);
@@ -114,8 +115,8 @@ const QRScanner = () => {
     return (
         <div className="scanner-page">
             <button className="home-btn" onClick={() => navigate('/')}>
-  <FaHome className="icon" /> Home
-</button>
+                <FaHome className="icon" /> Home
+            </button>
             <h1>Scan Product QR Code</h1>
             <div id="reader"></div>
 
@@ -146,9 +147,20 @@ const QRScanner = () => {
                     </ul>
                 )}
                 {products.length > 0 && (
-                    <button className="checkout-btn" onClick={() => navigate('/cart', { state: { products } })}>
-                        Proceed to Cart
-                    </button>
+                    <>
+                        <button className="checkout-btn" onClick={() => navigate('/cart', { state: { products } })}>
+                            Proceed to Cart
+                        </button>
+                        {/* <button className="back-btn" onClick={() => navigate('/scan-qr', { state: { products } })}>
+                            Back to Scan
+                        </button> */}
+
+
+                            
+
+
+                            
+                    </>
                 )}
             </div>
         </div>

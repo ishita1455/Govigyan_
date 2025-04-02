@@ -246,6 +246,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  
 }
 
 .scan-btn {
@@ -321,4 +322,34 @@ button {
 
 .home-btn:hover {
   background-color: #45a049;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Align buttons in the center */
+  gap: 20px; /* Space between buttons */
+  margin-top: 20px;
+}
+
+.cart-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background: #145c72;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cart-button:hover {
+  opacity: 0.8;
+}
+
+.proceed {
+  background: #27ae60; /* Green for proceed */
+}
+
+.proceed:hover {
+  background: #219150;
 }
