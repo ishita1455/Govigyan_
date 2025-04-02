@@ -17,7 +17,7 @@ const QRScanner = () => {
         "M102": { name: "Medicinal Tablets", price: 90, category: "medicinal" }
     };
 
-    // Handle Scanned Product
+    // Handle Scanned Product (Always start with quantity 1)
     const handleScanSuccess = (decodedText) => {
         const id = decodedText.trim();
 
@@ -25,12 +25,8 @@ const QRScanner = () => {
             setProducts(prevProducts => {
                 const existingProduct = prevProducts.find(p => p.id === id);
                 if (existingProduct) {
-                    // Increase quantity if product is already in the cart
-                    return prevProducts.map(p =>
-                        p.id === id ? { ...p, quantity: p.quantity + 1 } : p
-                    );
+                    return prevProducts; // Do not auto-increase quantity
                 } else {
-                    // Add new product
                     return [...prevProducts, {
                         id,
                         name: productList[id].name,
@@ -76,22 +72,21 @@ const QRScanner = () => {
     // Start Scanner
     useEffect(() => {
         const startScanner = async () => {
-            try {
-                if (!scannerRef.current) {
-                    scannerRef.current = new Html5Qrcode("reader");
-                    isScannerRunning.current = true;
-
+            if (!scannerRef.current) {
+                scannerRef.current = new Html5Qrcode("reader");
+                isScannerRunning.current = true;
+                try {
                     await scannerRef.current.start(
                         { facingMode: "environment" },
                         { fps: 10, qrbox: { width: 250, height: 250 } },
                         handleScanSuccess,
                         handleScanFailure
                     );
-
                     console.log("Scanner started.");
+                } catch (error) {
+                    console.error("Camera start failed:", error);
+                    isScannerRunning.current = false;
                 }
-            } catch (error) {
-                console.error('Camera start failed:', error);
             }
         };
 
