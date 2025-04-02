@@ -99,12 +99,12 @@ footer {
 }
 
 .buttons button {
-    background: #ff6600 !important;  /* 🔥 Bright Orange */
+    background: #1769cd !important; 
     color: #ffffff !important;       /* ✅ White Text for Contrast */
     font-size: 1.2rem;
     font-weight: bold;
     padding: 14px 28px;
-    border: 2px solid #cc5500;       /* 🟠 Slightly Darker Border */
+    border: 2px solid #27170b;       /* 🟠 Slightly Darker Border */
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
