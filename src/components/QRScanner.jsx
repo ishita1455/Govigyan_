@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
 import { useNavigate } from 'react-router-dom';
+import { FaHome } from 'react-icons/fa';
 import '../styles/QRScanner.css';
 
 const QRScanner = () => {
@@ -112,7 +113,9 @@ const QRScanner = () => {
 
     return (
         <div className="scanner-page">
-            <button className="home-btn" onClick={() => navigate('/')}>🏠 Home</button>
+            <button className="home-btn" onClick={() => navigate('/')}>
+  <FaHome className="icon" /> Home
+</button>
             <h1>Scan Product QR Code</h1>
             <div id="reader"></div>
 

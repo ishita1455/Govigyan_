@@ -1,4 +1,6 @@
 /* Styling for the Front Page Container */
+
+/*
 .front-page {
     display: flex;
     flex-direction: column;
@@ -12,7 +14,7 @@
     text-align: center;
 }
 
-/* Title Styling */
+
 .front-page h1 {
     font-size: 3rem;
     color: #2c3e50;
@@ -20,7 +22,7 @@
     text-shadow: 2px 2px 4px #aaa;
 }
 
-/* Tagline */
+
 .front-page p {
     font-size: 1.2rem;
     color: #555;
@@ -28,7 +30,7 @@
     max-width: 600px;
 }
 
-/* Button Container */
+
 .buttons {
     display: flex;
     justify-content: center;
@@ -36,7 +38,6 @@
     flex-wrap: wrap;
 }
 
-/* Button Styling */
 .buttons button {
     background: #3498db;
     color: #fff;
@@ -58,14 +59,13 @@
     transform: translateY(1px);
 }
 
-/* Footer Styling */
 footer {
     margin-top: 40px;
     font-size: 0.9rem;
     color: #555;
 }
 
-/* 🛠️ Responsive Design */
+
 @media (max-width: 768px) {
     .front-page h1 {
         font-size: 2.5rem;
@@ -100,11 +100,11 @@ footer {
 
 .buttons button {
     background: #1769cd !important; 
-    color: #ffffff !important;       /* ✅ White Text for Contrast */
+    color: #ffffff !important;       
     font-size: 1.2rem;
     font-weight: bold;
     padding: 14px 28px;
-    border: 2px solid #27170b;       /* 🟠 Slightly Darker Border */
+    border: 2px solid #27170b;       
     border-radius: 8px;
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
@@ -112,10 +112,118 @@ footer {
 }
 
 .buttons button:hover {
-    background: #e65c00;  /* 🎨 Darker Orange on Hover */
+    background: #e65c00;  
     transform: translateY(-2px);
 }
 
 .buttons button:active {
     transform: translateY(1px);
+}
+
+*/
+
+
+
+
+
+/* Modern Dark Theme for Front Page */
+.front-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: #121212; /* Dark Background */
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Title Styling */
+.front-page h1 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Tagline */
+.front-page p {
+    font-size: 1.2rem;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+    max-width: 600px;
+}
+
+/* Button Container */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Button Styling */
+.buttons button {
+    background: #1f7a8c;
+    color: #ffffff;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border: 2px solid #0d3b4e;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.buttons button:hover {
+    background: #145c72;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.buttons button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styling */
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .front-page h1 {
+        font-size: 2.5rem;
+    }
+
+    .front-page p {
+        font-size: 1rem;
+    }
+
+    .buttons button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .front-page h1 {
+        font-size: 2rem;
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .buttons button {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 10px 18px;
+    }
 }

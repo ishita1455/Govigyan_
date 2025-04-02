@@ -1,4 +1,6 @@
 /* Scanner Page Container */
+
+/*
 .scanner-page {
     display: flex;
     flex-direction: column;
@@ -12,7 +14,6 @@
     padding: 20px;
 }
 
-/* Heading Styling */
 .scanner-page h1 {
     font-size: 2.5rem;
     color: #2c3e50;
@@ -20,7 +21,7 @@
     text-shadow: 1px 1px 3px #aaa;
 }
 
-/* QR Scanner Box */
+
 #reader {
     width: 320px;
     height: 320px;
@@ -36,7 +37,7 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Animation for Scanning */
+
 #reader::after {
     content: '';
     display: block;
@@ -47,7 +48,7 @@
     animation: scan-line 2s infinite;
 }
 
-/* Scanning Effect Animation */
+
 @keyframes scan-line {
     0% {
         top: 0;
@@ -60,7 +61,7 @@
     }
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .scanner-page h1 {
         font-size: 2rem;
@@ -85,7 +86,6 @@
 
 
 
-/* QRScanner.css */
 .scanner-page {
     display: flex;
     flex-direction: column;
@@ -122,4 +122,115 @@
   .home-btn:hover {
     background-color: #45a049;
   }
+  */
   
+
+  
+
+
+
+
+  /* QRScanner.css - Dark Modern Theme */
+
+.scanner-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #121212; /* Dark background */
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+#reader {
+    width: 100%;
+    max-width: 400px;
+    height: 300px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    background: #1e1e1e;
+}
+
+.home-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #1769cd; /* Dark blue */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 2px 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+.home-btn:hover {
+    background-color: #0f4a8a;
+    transform: translateY(-2px);
+}
+
+/* Shopping Cart */
+.cart-container {
+    width: 90%;
+    max-width: 600px;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.cart-table th, .cart-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cart-table th {
+    background-color: #2c2c2c;
+    font-weight: bold;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 12px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.checkout-btn:hover {
+    background: #219150;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .cart-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .cart-table th, .cart-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
