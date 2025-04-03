@@ -118,7 +118,8 @@ const QRScanner = () => {
                 <FaHome className="icon" /> Home
             </button>
             <h1>Scan Product QR Code</h1>
-            <div id="reader"></div>
+            <div id="reader" className="scanner-box"></div>
+
 
             {/* Shopping Cart */}
             <div className="cart">
