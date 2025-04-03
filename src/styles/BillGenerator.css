@@ -1,105 +1,130 @@
 .bill-page {
-    font-family: Arial, sans-serif;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1, h2, h3 {
-    color: #333;
-  }
-  
-  .product-category {
-    background: #fff;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 20px;
-  }
-  
-  .product-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .product-item p {
-    margin: 5px 0;
-    color: #555;
-  }
-  
-  .download-btn {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 5px;
-  }
-  
-  .download-btn:hover {
-    background: #45a049;
-  }
-  
-  @media (max-width: 768px) {
-    .bill-page {
-      padding: 15px;
-    }
-  
-    .product-item {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .download-btn {
-      width: 100%;
-      padding: 12px;
-    }
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: #121212; /* Dark Background */
+  color: #e0e0e0;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
 
-  .home-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background 0.3s;
-  }
-  
-  .home-btn:hover {
-    background-color: #45a049;
-  }
-  table {
-    width: 80%; /* Adjust width as needed */
-    margin: 20px auto; /* Centers the table horizontally */
-    border-collapse: collapse;
-    background: #fff;
-    text-align: center;
+/* Title */
+.bill-page h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Table Styling */
+table {
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #1e1e1e;
+  color: #e0e0e0;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th, td {
-    padding: 12px;
-    border: 1px solid #ddd;
+  padding: 12px;
+  border: 1px solid #333;
 }
 
 th {
-    background: #4CAF50;
-    color: white;
+  background: #1f7a8c;
+  color: white;
 }
 
 tbody tr:nth-child(even) {
-    background: #f9f9f9;
+  background: #292929;
+}
+
+
+/* Button Styling */
+/* Button Container */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Button Styling (Same Size for All) */
+.bill-button {
+  background: #1f7a8c;
+  color: #ffffff;
+  font-size: 1.1rem;
+  padding: 12px 24px; /* Ensures uniform button size */
+  border: 2px solid #0d3b4e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 220px; /* Ensures all buttons have the same width */
+  text-align: center;
+}
+
+.bill-button:hover {
+  background: #145c72;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.bill-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bill-page h1 {
+      font-size: 2rem;
+  }
+
+  table {
+      width: 100%;
+      font-size: 14px;
+  }
+
+  th, td {
+      padding: 8px;
+  }
+
+   .button-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+  }
+
+  .bill-button {
+      width: 100%; /* Makes buttons full width for better mobile UI */
+  }
+}
+
+@media (max-width: 480px) {
+  .bill-page h1 {
+      font-size: 1.8rem;
+  }
+
+  table {
+      font-size: 12px;
+  }
+
+  .button-container {
+      gap: 15px;
+  }
+
+  .bill-button {
+      font-size: 1rem;
+      padding: 10px 20px;
+  }
 }
