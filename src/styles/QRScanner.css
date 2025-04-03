@@ -1,169 +1,38 @@
-/* Scanner Page Container */
-
-/*
-.scanner-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f0f0f0, #d4e6f1);
-    color: #333;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-}
-
-.scanner-page h1 {
-    font-size: 2.5rem;
-    color: #2c3e50;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 3px #aaa;
-}
-
-
-#reader {
-    width: 320px;
-    height: 320px;
-    border: 8px solid #27ae60;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
-    background: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#reader:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-
-#reader::after {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 8px;
-    background: #27ae60;
-    animation: scan-line 2s infinite;
-}
-
-
-@keyframes scan-line {
-    0% {
-        top: 0;
-    }
-    50% {
-        top: 100%;
-    }
-    100% {
-        top: 0;
-    }
-}
-
-
-@media (max-width: 768px) {
-    .scanner-page h1 {
-        font-size: 2rem;
-    }
-
-    #reader {
-        width: 280px;
-        height: 280px;
-    }
-}
-
-@media (max-width: 480px) {
-    .scanner-page h1 {
-        font-size: 1.8rem;
-    }
-
-    #reader {
-        width: 240px;
-        height: 240px;
-    }
-}
-
-
-
 .scanner-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-  }
-  
-  #reader {
-    width: 100%;
-    max-width: 400px;
-    height: 300px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-
-  .home-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background 0.3s;
-  }
-  
-  .home-btn:hover {
-    background-color: #45a049;
-  }
-  */
-  
-
-  
-
-
-
-
-  /* QRScanner.css - Dark Modern Theme */
-
-.scanner-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+    padding: 5vw;
     background: #121212; /* Dark background */
     color: #ffffff;
     min-height: 100vh;
 }
 
+/* QR Scanner Reader */
 #reader {
-    width: 100%;
+    width: 90%;
     max-width: 400px;
-    height: 300px;
+    height: auto;
+    aspect-ratio: 4 / 3; /* Ensures consistent aspect ratio */
     border: 2px solid #333;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-    margin-top: 20px;
+    margin-top: 5vw;
     background: #1e1e1e;
 }
 
+/* Home Button */
 .home-btn {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    padding: 10px 20px;
-    background-color: #1769cd; /* Dark blue */
+    top: 2vw;
+    left: 2vw;
+    padding: 2vw 4vw;
+    background-color: #1769cd;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1rem;
     text-decoration: none;
     transition: background 0.3s, transform 0.2s;
     box-shadow: 2px 4px 10px rgba(255, 255, 255, 0.2);
@@ -174,19 +43,20 @@
     transform: translateY(-2px);
 }
 
-/* Shopping Cart */
+/* Shopping Cart Container */
 .cart-container {
     width: 90%;
     max-width: 600px;
     background: #1e1e1e;
-    padding: 20px;
+    padding: 5vw;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-    margin-top: 20px;
+    margin-top: 5vw;
     text-align: center;
     color: #ffffff;
 }
 
+/* Shopping Cart Table */
 .cart-table {
     width: 100%;
     border-collapse: collapse;
@@ -195,9 +65,10 @@
 
 .cart-table th, .cart-table td {
     border: 1px solid #444;
-    padding: 10px;
+    padding: 1vw;
     text-align: center;
     color: #ffffff;
+    font-size: 1rem;
 }
 
 .cart-table th {
@@ -205,6 +76,7 @@
     font-weight: bold;
 }
 
+/* Checkout Button */
 .checkout-btn {
     width: 100%;
     padding: 12px;
@@ -212,7 +84,7 @@
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     margin-top: 15px;
     transition: background 0.3s, transform 0.2s;
@@ -223,14 +95,50 @@
     transform: translateY(-2px);
 }
 
-@media (max-width: 480px) {
+/* Responsive Design */
+@media (max-width: 768px) {
+    .scanner-page {
+        padding: 5vw;
+    }
+
+    .home-btn {
+        font-size: 0.9rem;
+        padding: 3vw;
+    }
+
     .cart-container {
         width: 100%;
-        padding: 15px;
+        padding: 4vw;
     }
 
     .cart-table th, .cart-table td {
+        font-size: 0.9rem;
+        padding: 2vw;
+    }
+
+    .checkout-btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-btn {
+        font-size: 0.8rem;
+        padding: 3vw;
+    }
+
+    .cart-container {
+        padding: 3vw;
+    }
+
+    .cart-table th, .cart-table td {
+        font-size: 0.8rem;
+        padding: 1.5vw;
+    }
+
+    .checkout-btn {
+        font-size: 0.9rem;
         padding: 8px;
-        font-size: 14px;
     }
 }
