@@ -78,7 +78,7 @@ const BillGenerator = () => {
             </table>
             <h2>Grand Total: ₹{products.reduce((acc, item) => acc + item.price * item.quantity, 0)}</h2>
             <div className="button-container">
-                <button className="bill-button download-btn" onClick={generateBill}>Download PDF</button>
+             <button className="bill-button pay-btn" style={{ backgroundColor: 'seagreen'}} onClick={generateBill} >Download PDF</button>
              <button className="bill-button pay-btn" onClick={() => navigate('/payment')}>Proceed to Pay</button>
              <button className="bill-button home-btn" onClick={() => navigate('/')}>Go to Front Page</button>
             </div>
