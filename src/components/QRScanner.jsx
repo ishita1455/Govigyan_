@@ -18,8 +18,6 @@ const QRScanner = () => {
         "M101": { name: "Medicinal Syrup", price: 120, category: "medicinal" },
         "M102": { name: "Medicinal Tablets", price: 90, category: "medicinal" },
         "P004": { name: "Herbal Soap", price: 70, category: "govigyan" },
-   
-  
         "M103": { name: "Ayurvedic Oil", price: 200, category: "medicinal" },
         "M104": { name: "Herbal Tea", price: 180, category: "medicinal" },
         "F201": { name: "Organic Honey", price: 250, category: "govigyan" },
