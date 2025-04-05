@@ -84,6 +84,29 @@ tbody tr:nth-child(even) {
 }
 
 
+.gst-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.gst-inputs label {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gst-inputs input {
+  padding: 5px;
+  width: 60px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .bill-page h1 {

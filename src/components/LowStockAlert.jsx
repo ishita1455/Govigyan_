@@ -1,0 +1,73 @@
+import React, { useEffect, useState } from 'react';
+import { db } from '../firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
+import '../styles/LowStockAlert.css';
+
+const LowStockAlert = () => {
+    const [lowStockItems, setLowStockItems] = useState([]);
+    const [threshold, setThreshold] = useState(5);
+    const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetchLowStockItems();
+    }, [threshold]);
+
+    const fetchLowStockItems = async () => {
+        setLoading(true);
+        try {
+            const querySnapshot = await getDocs(collection(db, 'products'));
+            const items = querySnapshot.docs
+                .map(doc => ({ id: doc.id, ...doc.data() }))
+                .filter(item => parseInt(item.stock) <= threshold);
+            setLowStockItems(items);
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleThresholdChange = (e) => {
+        const value = parseInt(e.target.value);
+        setThreshold(isNaN(value) ? 0 : value);
+    };
+
+    return (
+        <div className="low-stock-container">
+            <div className="header-row">
+                <h2>Low Stock Alerts</h2>
+                <button onClick={() => navigate('/admin')} className="back-button">
+                    ← Back to Admin Panel
+                </button>
+            </div>
+
+            <div className="threshold-input">
+                <label>Alert if stock ≤ </label>
+                <input
+                    type="number"
+                    value={threshold}
+                    onChange={handleThresholdChange}
+                    min="1"
+                />
+            </div>
+
+            {loading ? (
+                <p>Loading products...</p>
+            ) : lowStockItems.length === 0 ? (
+                <p className="no-alert">✅ All products are above the stock threshold.</p>
+            ) : (
+                <ul className="low-stock-list">
+                    {lowStockItems.map(item => (
+                        <li key={item.id}>
+                            <strong>{item.name}</strong> – Stock: {item.stock}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+};
+
+export default LowStockAlert;
