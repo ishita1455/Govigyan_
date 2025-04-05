@@ -126,6 +126,44 @@ tbody tr:nth-child(even) {
   transition: all 0.3s ease;
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 60px; /* 👈 Increased spacing between arrow and logo */
+}
+
+.back-arrow {
+  font-size: 100px; /* 👈 Bigger arrow */
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  background: none;
+  border: none;
+  transition: color 0.3s;
+  line-height: 1; /* Optional: prevent stretching */
+}
+
+.back-arrow:hover {
+  color: #007bff;
+}
+
+.logo {
+  height: 100px; /* 👈 Bigger logo */
+  object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -152,6 +190,35 @@ tbody tr:nth-child(even) {
       width: 100%; /* Makes buttons full width for better mobile UI */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 480px) {
   .bill-page h1 {

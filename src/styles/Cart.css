@@ -5,7 +5,7 @@
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
-  color: #1e1e1e;
+  color: #ffffff;
   background: #121212;
 }
 
@@ -15,7 +15,7 @@ h1, h2 {
 }
 
 .cart-preview {
-  background: #1e1e1e;
+  background:  #1e1e1e;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -125,6 +125,49 @@ button {
 
 .remove-btn:hover {
   background: #c0392b;
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .back-arrow {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: none;
+    border: none;
+    transition: color 0.3s;
+  }
+  
+  .back-arrow:hover {
+    color: #007bff;
+  }
+  
+  .logo {
+    height: 50px;
+    object-fit: contain;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 @media (max-width: 768px) {

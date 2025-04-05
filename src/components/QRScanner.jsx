@@ -191,6 +191,7 @@ import { FaHome } from 'react-icons/fa';
 import { db } from '../firebaseConfig'; // Import Firebase Firestore instance
 import { doc, getDoc } from 'firebase/firestore';
 import { collection, getDocs, query, where } from 'firebase/firestore';
+import logo from '../assets/Govigyan_banner_1.png';
 
 import '../styles/QRScanner.css';
 
@@ -204,15 +205,15 @@ const QRScanner = () => {
     // Handle Scanned Product (Fetch from Firestore)
     const handleScanSuccess = async (scannedCode) => {
         const code = scannedCode.trim();
-    
+
         try {
             const querySnapshot = await getDocs(collection(db, 'products'));
             const matchedDoc = querySnapshot.docs.find(doc => doc.data().qrCode === code);
-    
+
             if (matchedDoc) {
                 const productData = matchedDoc.data();
                 const id = matchedDoc.id;
-    
+
                 setProducts(prevProducts => {
                     const existingProduct = prevProducts.find(p => p.id === id);
                     if (existingProduct) {
@@ -306,46 +307,53 @@ const QRScanner = () => {
     }, []);
 
     return (
-        <div className="scanner-page">
-            <button className="home-btn" onClick={() => navigate('/')}> <FaHome className="icon" /> Home </button>
-            <h1>Scan Product QR Code</h1>
-            <div id="reader" className="scanner-box"></div>
-
-            {/* Shopping Cart */}
-            <div className="cart">
-                <h2>Shopping Cart</h2>
-                {products.length === 0 ? (
-                    <p>Cart is empty.</p>
-                ) : (
-                    <ul>
-                        {products.map((product, index) => (
-                            <li key={index}>
-                                <strong>{product.name}</strong>  
-                                <br />
-                                Price: ₹{product.price}  
-                                <br />
-                                Quantity:  
-                                <button className="quantity-btn" onClick={() => decreaseQuantity(product.id)}>-</button>
-                                {product.quantity}
-                                <button className="quantity-btn" onClick={() => increaseQuantity(product.id)}>+</button>
-                                <br />
-                                Subtotal: ₹{product.price * product.quantity}  
-                                <br />
-                                <button className="remove-btn" onClick={() => removeProduct(product.id)}>Remove</button>
-                                <hr />
-                            </li>
-                        ))}
-                    </ul>
-                )}
-                {products.length > 0 && (
-                    <>
-                        <button className="checkout-btn" onClick={() => navigate('/cart', { state: { products } })}>
-                            Proceed to Cart
-                        </button>
-                    </>
-                )}
+        <>
+            {/* ✅ Navbar inserted here */}
+            <div className="navbar">
+                <button className="back-arrow" onClick={() => navigate('/')}>←</button>
+                <img src={logo} alt="Govigyan Logo" className="logo" />
             </div>
-        </div>
+
+            <div className="scanner-page">  
+                <h1>Scan Product QR Code</h1>
+                <div id="reader" className="scanner-box"></div>
+
+                {/* Shopping Cart */}
+                <div className="cart">
+                    <h2>Shopping Cart</h2>
+                    {products.length === 0 ? (
+                        <p>Cart is empty.</p>
+                    ) : (
+                        <ul>
+                            {products.map((product, index) => (
+                                <li key={index}>
+                                    <strong>{product.name}</strong>
+                                    <br />
+                                    Price: ₹{product.price}
+                                    <br />
+                                    Quantity:
+                                    <button className="quantity-btn" onClick={() => decreaseQuantity(product.id)}>-</button>
+                                    {product.quantity}
+                                    <button className="quantity-btn" onClick={() => increaseQuantity(product.id)}>+</button>
+                                    <br />
+                                    Subtotal: ₹{product.price * product.quantity}
+                                    <br />
+                                    <button className="remove-btn" onClick={() => removeProduct(product.id)}>Remove</button>
+                                    <hr />
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                    {products.length > 0 && (
+                        <>
+                            <button className="checkout-btn" onClick={() => navigate('/cart', { state: { products } })}>
+                                Proceed to Cart
+                            </button>
+                        </>
+                    )}
+                </div>
+            </div>
+        </>
     );
 };
 

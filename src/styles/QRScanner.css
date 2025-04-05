@@ -101,6 +101,34 @@
     transform: translateY(-2px);
 }
 
+
+navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .back-arrow {
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: none;
+    border: none;
+    transition: color 0.3s;
+  }
+  
+  .back-arrow:hover {
+    color: #007bff;
+  }
+  
+  .logo {
+    height: 50px;
+    object-fit: contain;
+  }
+
 /* Responsive Adjustments */
 @media (max-width: 600px) {
     .scanner-box {
