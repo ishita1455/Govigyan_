@@ -21,6 +21,15 @@ const AdminPanel = () => {
   };
 
   return (
+        
+
+
+
+
+
+
+
+
     <div className="admin-panel">
       <div className="admin-navbar">
         <img src={logo} alt="Logo" className="admin-logo" />
