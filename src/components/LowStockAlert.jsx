@@ -39,7 +39,7 @@ const LowStockAlert = () => {
         <div className="view-bills-page">
             {/* ✅ Navbar */}
             <div className="navbar">
-                <span className="back-arrow" onClick={() => navigate(-1)}>&larr; Back</span>
+                <span className="back-arrow" onClick={() => navigate(-1)}>&larr; </span>
                 <img src={logo} alt="Logo" className="logo" />
             </div>
 
