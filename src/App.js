@@ -14,20 +14,25 @@ import ViewBills from './components/ViewBills';
 import AddAdmin from './components/AddAdmin';
 import LowStockAlert from './components/LowStockAlert';
 import BusinessInfo from './components/BusinessInfo';
+import UploadQRCode from './components/UploadQR';
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />} />
         <Route path ="/business-info" element={<BusinessInfo/>}/> 
-        <Route path="/inventory" element={<Inventory />} />
+        <Route path="/inventory" element={<InventoryDashboard />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/scan" element={<QRScanner />} />
         <Route path="/bill-generator" element={<BillGenerator />} />
         <Route path="/admin" element={<AdminPanel />}/>
         <Route path="/lowstockalert" element={<LowStockAlert />}/>
+        <Route path="/user-front" element={<FrontPage />} />
         <Route path="/view-bills" element={<ViewBills />} />
-        <Route path="/add-admin" element={<AddAdmin />} />  {/* ✅ Admin route */}
+        <Route path="/upload-qr" element={<UploadQRCode />} />
+        <Route path="/add-admin" element={<AddAdmin />} /> 
+        <Route path="/payment" element={<Payment />} /> 
+         {/* ✅ Admin route */}
       </Routes>
     </Router>
   );

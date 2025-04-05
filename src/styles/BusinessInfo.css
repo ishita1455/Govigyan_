@@ -36,6 +36,7 @@
   */
   .business-info-form input,
   .business-info-form textarea {
+    background-color: white;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;

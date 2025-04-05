@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/AdminPanel.css';
 import { MdBusiness, MdInventory, MdWarning, MdReceipt, MdPersonAdd } from 'react-icons/md';
+import { AiOutlineQrcode, AiOutlineShoppingCart, AiOutlineFileText } from 'react-icons/ai'; 
 import logo from '../assets/Govigyan_banner_1.png'; // Adjust path if needed
 
 const AdminPanel = () => {
@@ -13,6 +14,7 @@ const AdminPanel = () => {
     { label: 'Low Stock Alerts', route: '/lowstockalert', icon: <MdWarning size={28} /> },
     { label: 'All Bills', route: '/view-bills', icon: <MdReceipt size={28} /> },
     { label: 'Add Admin', route: '/add-admin', icon: <MdPersonAdd size={28} /> },
+    { label: 'Upload QR', route: '/upload-qr', icon: <AiOutlineQrcode size={28} /> },
   ];
 
   const handleLogout = () => {
@@ -23,17 +25,15 @@ const AdminPanel = () => {
   return (
         
 
-
-
-
-
-
-
-
     <div className="admin-panel">
       <div className="admin-navbar">
         <img src={logo} alt="Logo" className="admin-logo" />
-        <button className="logout-button" onClick={handleLogout}>Logout</button>
+        <div className="logout-buttons">
+    <button className = "scanqr" onClick={() => navigate('/scan')}>
+              <AiOutlineQrcode className="icon" />Scan QR
+            </button>
+    <button className="logout-button" onClick={() => navigate('/')}>Logout</button>
+  </div>
       </div>
 
       <div className="dashboard-container">

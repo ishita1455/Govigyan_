@@ -68,19 +68,62 @@ body {
     border-radius: 10px;
   }
   
-  .inventory-form input {
-    flex: 1 1 200px;
-    padding: 0.75rem;
-    border-radius: 6px;
-    border: 1px solid #444;
-    background-color: #222;
-    color: #fff;
-    font-size: 0.95rem;
-  }
+  .inventory-form input[type="text"],
+.inventory-form input[type="number"],
+.inventory-form input[type="email"],
+.inventory-form input[type="password"],
+.inventory-form input[type="tel"],
+.inventory-form input[type="search"] {
+  flex: 1 1 200px;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #222;
+  color: #fff;
+  font-size: 0.95rem;
+  appearance: none; /* Removes native styles (especially on iOS) */
+}
+
   
   .inventory-form input::placeholder {
     color: #888;
   }
+  .type-selector {
+    margin-bottom: 1.5rem;
+    color: white;
+  }
+  
+  .type-selector label {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .type-selector select {
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+    font-size: 1rem;
+  }
+  
+  .alert-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    color: #e53935;
+    /* background: #fff; */
+    border-radius: 50%;
+    padding: 0.1rem 0.4rem;
+    font-weight: bold;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+  }
+  
+  .product-card {
+    position: relative; /* Needed for alert-icon positioning */
+  }
+  
   
   .primary-btn {
     background-color: #4caf50;
@@ -93,10 +136,10 @@ body {
     transition: background-color 0.2s ease-in-out;
   }
   
-  .primary-btn:hover {
+  /* .primary-btn:hover {
     background-color: #43a047;
   }
-  
+   */
   /* Product Cards */
   .product-grid {
     display: grid;
@@ -171,13 +214,19 @@ body {
   }
   
   /* Responsive */
-  @media (max-width: 768px) {
-    .inventory-form {
-      flex-direction: column;
+  @media (max-width: 480px) {
+    .inventory-form input,
+    .primary-btn {
+      flex: 1 1 100%;
+      width: 100%;
     }
   
-    .product-actions {
-      flex-direction: column;
+    .inventory-form {
+      padding: 1rem 0.5rem;
+    }
+  
+    .product-card {
+      padding: 0.75rem;
     }
   }
   

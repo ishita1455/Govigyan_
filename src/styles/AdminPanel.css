@@ -8,21 +8,39 @@ body{
   
 }
 
-.admin-navbar {
+/* .admin-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .admin-logo {
   height: 50px;
 }
 
+.admin-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.logout-buttons {
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+}
+
 .logout-button {
   padding: 8px 10px;
-  margin-left: 10% ;
   background-color: #e53935;
   color: white;
   border: none;
@@ -35,6 +53,26 @@ body{
 .logout-button:hover {
   background-color: #c62828;
 }
+
+.scanqr{
+  background: #1f7a8c;
+  color: #ffffff;
+}
+
+.scanqr{
+  background: #1f7a8c;
+  color: #ffffff;
+  font-size: 1.1rem;
+    padding: 12px 24px;
+    border: 2px solid #0d3b4e;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
 
 .dashboard-container {
   max-width: 1000px;

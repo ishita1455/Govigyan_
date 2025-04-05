@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { db } from '../firebaseConfig';
 import { collection, addDoc, getDocs, updateDoc, deleteDoc, doc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import "../styles/InventoryDashboard.css";
+
 import logo from '../assets/Govigyan_banner_1.png';
 // import '../styles/Inventory.css';
 

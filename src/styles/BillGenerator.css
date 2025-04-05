@@ -72,11 +72,11 @@ tbody tr:nth-child(even) {
   text-align: center;
 }
 
-.bill-button:hover {
-  background: #145c72;
+/* .bill-button:hover {
+  background: #ccc;
   transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-}
+} */
 
 .bill-button:active {
   transform: translateY(1px);
@@ -105,6 +105,26 @@ tbody tr:nth-child(even) {
   border: 1px solid #ccc;
 }
 
+#download{
+  background-color: #145c72;
+}
+
+#download :hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  background-color: #0e4252;
+}
+
+#cancel{
+  background-color:#e53935 ;
+}
+
+#cancel :hover{
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  background-color: #42100f;
+  transition: all 0.3s ease;
+}
 
 
 /* Responsive Design */

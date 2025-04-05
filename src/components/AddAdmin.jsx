@@ -44,7 +44,7 @@ const AddAdmin = () => {
       </div>
 
       <div className="add-admin-container">
-        <img src={logo} alt="Floating Logo" className="floating-logo" />
+        {/* <img src={logo} alt="Floating Logo" className="floating-logo" /> */}
         <h2>Add New Admin</h2>
 
         {message && (

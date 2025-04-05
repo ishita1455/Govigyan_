@@ -104,7 +104,7 @@ const LoginPage = () => {
     const handleUserLogin = () => {
         if (userName.trim() !== '') {
             localStorage.setItem('userName', userName);
-            navigate('/scan');
+            navigate('/user-front');
         } else {
             alert("Please enter your name.");
         }

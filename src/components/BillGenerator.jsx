@@ -407,11 +407,12 @@ const BillGenerator = () => {
 
             <div className="button-container">
                 {!isPaymentConfirmed ? (
-                    <button className="bill-button" onClick={confirmPayment}>Confirm Payment</button>
+                    <button className="bill-button" id="download" onClick={confirmPayment}>Confirm Payment</button>
                 ) : (
-                    <button className="bill-button" onClick={downloadPDF}>Download PDF</button>
+                    <button className="bill-button" id="download" onClick={downloadPDF}>Download PDF</button>
                 )}
-                <button className="bill-button" onClick={() => navigate('/')}>Go to Front Page</button>
+                <button className="bill-button" onClick={() => navigate('/payment')}>Proceed to Pay</button>
+                <button className="bill-button" id="cancel" onClick={() => navigate('/')}>Cancel Payment</button>
             </div>
         </div>
     );

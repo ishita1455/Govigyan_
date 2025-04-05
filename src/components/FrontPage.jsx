@@ -35,11 +35,11 @@ const FrontPage = () => {
 
   return (
     <div className="front-page">
-      <h1>QR-Based Billing System</h1>
-      <p>"Effortless billing with real-time QR scanning and inventory management."</p>
+      {/* <h1>QR-Based Billing System</h1>
+      <p>"Effortless billing with real-time QR scanning and inventory management."</p> */}
 
       <div className="buttons">
-        <button onClick={() => navigate('/scan-qr')}>
+        <button onClick={() => navigate('/scan')}>
           <AiOutlineQrcode className="icon" /> Scan QR
         </button>
         <button onClick={() => navigate('/cart')}>
