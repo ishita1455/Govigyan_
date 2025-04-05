@@ -46,9 +46,7 @@ const LowStockAlert = () => {
             <div className="low-stock-container">
                 <div className="header-row">
                     <h2>Low Stock Alerts</h2>
-                    <button onClick={() => navigate('/admin')} className="back-button">
-                        ← Back to Admin Panel
-                    </button>
+                    
                 </div>
 
                 <div className="threshold-input">
