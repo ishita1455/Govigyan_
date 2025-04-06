@@ -1,74 +1,82 @@
-import React, { useEffect, useState } from 'react';
-import { db, storage } from '../firebaseConfig';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
+import React, { useState, useEffect } from 'react';
+import { db } from '../firebaseConfig';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import '../styles/UploadQR.css';
 import logo from '../assets/Govigyan_banner_1.png';
+import { FiUpload, FiTrash2 } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 
 const UploadQRCode = () => {
   const [file, setFile] = useState(null);
   const [preview, setPreview] = useState(null);
-  const [qrURL, setQrURL] = useState(null);
-  const [isUploading, setIsUploading] = useState(false);
+  const [existingQR, setExistingQR] = useState(null);
   const [successMsg, setSuccessMsg] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
   const navigate = useNavigate();
 
+  // Fetch the current QR code on component mount
   useEffect(() => {
     const fetchQR = async () => {
-      const qrDoc = await getDoc(doc(db, 'storeInfo', 'paymentQR'));
-      if (qrDoc.exists()) {
-        setQrURL(qrDoc.data().qrURL);
+      try {
+        const docRef = doc(db, 'storeInfo', 'paymentQR');
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.qrBase64) {
+            setExistingQR(data.qrBase64);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching QR:', error);
       }
     };
+
     fetchQR();
   }, []);
 
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreview(reader.result); // Base64 image preview
+      setSuccessMsg('');
+    };
+    reader.readAsDataURL(selectedFile);
+  };
+
   const handleUpload = async () => {
-    if (!file) return;
+    if (!preview) return;
 
     setIsUploading(true);
-    setSuccessMsg('');
-
     try {
-      const storageRef = ref(storage, 'qrcodes/upi.png');
-      await uploadBytes(storageRef, file);
-      const downloadURL = await getDownloadURL(storageRef);
-
       await setDoc(doc(db, 'storeInfo', 'paymentQR'), {
-        qrURL: downloadURL,
+        qrBase64: preview,
       });
 
       setSuccessMsg('✅ QR Code uploaded successfully!');
-      setQrURL(downloadURL);
+      setExistingQR(preview);
       setPreview(null);
       setFile(null);
     } catch (error) {
       console.error('Upload failed:', error);
-      setSuccessMsg('❌ Upload failed. Please try again.');
+      setSuccessMsg('❌ Upload failed.');
     } finally {
       setIsUploading(false);
     }
   };
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setFile(selectedFile);
-      setPreview(URL.createObjectURL(selectedFile));
-      setSuccessMsg('');
-    }
-  };
-
-  const handleDelete = async () => {
+  const handleRemove = async () => {
     try {
-      const storageRef = ref(storage, 'qrcodes/upi.png');
-      await deleteObject(storageRef);
-      await setDoc(doc(db, 'storeInfo', 'paymentQR'), { qrURL: '' });
-      setQrURL(null);
-      setSuccessMsg('🗑️ QR Code removed successfully.');
+      await setDoc(doc(db, 'storeInfo', 'paymentQR'), {
+        qrBase64: '',
+      });
+
+      setExistingQR(null);
+      setSuccessMsg('🗑️ QR Code removed.');
     } catch (error) {
-      console.error('Error deleting QR:', error);
+      console.error('Error removing QR:', error);
       setSuccessMsg('❌ Failed to remove QR.');
     }
   };
@@ -81,49 +89,47 @@ const UploadQRCode = () => {
       </div>
 
       <div className="qr-upload-container">
-        <h3>{qrURL ? 'Change or Remove QR Code' : 'Upload Store QR Code'}</h3>
+        <h3>{existingQR ? 'Change or Remove QR Code' : 'Upload Store QR Code'}</h3>
 
-        <input
-          type="file"
-          accept="image/*"
-          id="fileInput"
-          style={{ display: 'none' }}
-          onChange={handleFileChange}
-        />
+        <input type="file" accept="image/*" onChange={handleFileChange} />
 
-        <button onClick={() => document.getElementById('fileInput').click()}>
-          📷 Choose QR
-        </button>
-
+        {/* Show Preview of Selected QR */}
         {preview && (
           <div className="qr-preview">
-            <img src={preview} alt="Selected QR Preview" />
-            <p>Preview of selected QR code</p>
+            <img src={preview} alt="Preview QR" />
+            <p>Preview</p>
           </div>
         )}
 
-        {qrURL && !preview && (
+        {/* Show Existing QR if no new file is selected */}
+        {!preview && existingQR && (
           <div className="qr-preview">
-            <img src={qrURL} alt="Current QR" />
+            <img src={existingQR} alt="Existing QR" />
             <p>Current Store QR</p>
           </div>
         )}
 
-        {file && (
+        {/* Upload Button */}
+        {preview && (
           <button onClick={handleUpload} disabled={isUploading}>
-            {isUploading ? 'Uploading...' : '⬆️ Upload QR'}
+            {isUploading ? 'Uploading...' : (
+              <>
+                <FiUpload style={{ marginRight: '6px' }} />
+                Upload QR
+              </>
+            )}
           </button>
         )}
 
-        {qrURL && !preview && (
-          <button onClick={handleDelete}>
-            🗑️ Remove QR
+        {/* Remove Button */}
+        {existingQR && !preview && (
+          <button onClick={handleRemove} className="remove-btn">
+            <FiTrash2 style={{ marginRight: '6px' }} />
+            Remove QR
           </button>
         )}
 
         {successMsg && <p className="success-msg">{successMsg}</p>}
-
-        {isUploading && <div className="loader"></div>}
       </div>
     </div>
   );

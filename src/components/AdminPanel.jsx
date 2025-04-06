@@ -14,7 +14,7 @@ const AdminPanel = () => {
     { label: 'Low Stock Alerts', route: '/lowstockalert', icon: <MdWarning size={28} /> },
     { label: 'All Bills', route: '/view-bills', icon: <MdReceipt size={28} /> },
     { label: 'Add Admin', route: '/add-admin', icon: <MdPersonAdd size={28} /> },
-    { label: 'Upload QR', route: '/upload-qr', icon: <AiOutlineQrcode size={28} /> },
+    { label: 'Upload UPI QR', route: '/upload-qr', icon: <AiOutlineQrcode size={28} /> },
   ];
 
   const handleLogout = () => {
