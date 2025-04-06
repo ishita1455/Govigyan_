@@ -43,7 +43,7 @@ import logo from '../assets/Govigyan_banner_1.png';
 import { useNavigate } from 'react-router-dom';
 import '../styles/ViewBills.css';
 
-const ViewBills = () => {
+const Bills = () => {
     const [bills, setBills] = useState([]);
 
     useEffect(() => {

@@ -25,6 +25,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/scan" element={<QRScanner />} />
         <Route path="/bill-generator" element={<BillGenerator />} />
+        <Route path="/bills" element={<Bills />} />
         <Route path="/admin" element={<AdminPanel />}/>
         <Route path="/lowstockalert" element={<LowStockAlert />}/>
         <Route path="/user-front" element={<FrontPage />} />

@@ -13,7 +13,8 @@ const Payment = () => {
     const fetchQR = async () => {
       const qrDoc = await getDoc(doc(db, 'storeInfo', 'paymentQR'));
       if (qrDoc.exists()) {
-        setQrURL(qrDoc.data().qrURL);
+        setQrURL(qrDoc.data().qrBase64);
+
       }
     };
     fetchQR();
